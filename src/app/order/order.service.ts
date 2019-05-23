@@ -10,6 +10,10 @@ export class OrderService {
 
     constructor(private cartService: ShoppingCartService) { }
 
+
+    itemsValue():number{
+        return this.cartService.total()
+    }
     cartItems(): CartItem[] {
         return this.cartService.items
     }
@@ -19,7 +23,7 @@ export class OrderService {
     }
 
     decreaseQty(item: CartItem) {
-        this.cartService.increaseQty(item)
+        this.cartService.decreaseQty(item)
     }
 
     remove(item: CartItem) {
