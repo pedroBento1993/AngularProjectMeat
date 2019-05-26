@@ -4,6 +4,7 @@ import { OrderService } from './order.service';
 import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model';
 import { OrderItem, Order } from './order.model';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'mt-order',
@@ -12,7 +13,14 @@ import { Router } from '@angular/router';
 })
 export class OrderComponent implements OnInit {
 
-  delivery : number = 8
+
+  emailPatern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+
+  numberPatern =/^[0-9]*$/
+
+  orderForm: FormGroup
+
+  delivery: number = 8
 
   paymentOptions: RadioOption[] = [
     { label: 'Dinheiro', value: 'MON' },
@@ -21,12 +29,22 @@ export class OrderComponent implements OnInit {
   ]
 
   constructor(private orderService: OrderService,
-    private router: Router) { }
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.orderForm = this.formBuilder.group({
+      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      email: this.formBuilder.control('',[Validators.required, Validators.pattern(this.emailPatern)]),
+      emailConfirmation: this.formBuilder.control('',[Validators.required, Validators.pattern(this.emailPatern)]),
+      address: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      number: this.formBuilder.control('',[Validators.required, Validators.pattern(this.numberPatern)]),
+      optionalAddress: this.formBuilder.control(''),
+      paymentOption: this.formBuilder.control('',[Validators.required])
+    })
   }
 
-  itemsValue():number{
+  itemsValue(): number {
     return this.orderService.itemsValue()
   }
 
@@ -46,16 +64,16 @@ export class OrderComponent implements OnInit {
     this.orderService.remove(item)
   }
 
-  checkOrder(order : Order){
+  checkOrder(order: Order) {
     order.orderItems = this.cartItems()
-    .map((item:CartItem)=> new OrderItem(item.quantity,item.menuItem.id))
+      .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id))
 
-    this.orderService.checkOrder(order).subscribe((orderId:string)=> {
+    this.orderService.checkOrder(order).subscribe((orderId: string) => {
       this.router.navigate(['/order-summary'])
       console.log(order)
       console.log(`Compra concluida: ${orderId}`)
       this.orderService.clear()
-    } )
+    })
   }
 
 }

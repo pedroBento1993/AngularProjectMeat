@@ -387,6 +387,22 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "pedro bento",
+      "email": "pgmbento93@gmail.com",
+      "emailConfirmation": "pgmbento93@gmail.com",
+      "address": "prct fernando pessa n2 4dto",
+      "number": "777",
+      "optionalAddress": "",
+      "paymentOption": "MON",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        }
+      ],
+      "id": 2
     }
   ]
 }
