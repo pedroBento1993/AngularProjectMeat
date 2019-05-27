@@ -21,3 +21,4 @@ import 'zone.js/dist/zone';
 import 'intl';  
 import 'intl/locale-data/jsonp/pt-Br.js';
 
+import 'web-animations-js/web-animations.min.js';
