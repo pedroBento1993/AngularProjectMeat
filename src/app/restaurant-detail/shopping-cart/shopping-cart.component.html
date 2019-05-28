@@ -3,20 +3,20 @@
   <div class="box-header">
     <i class="fa fa-shopping-cart"></i>
 
-    <h3 class="box-title">Carrinho</h3>
+    <h3 class="box-title">Cart</h3>
   </div>
   <!-- /.box-header -->
   <div class="box-body">
 
     <div *ngIf="!items().length">
       <p class="text-center">
-        Seu carrinho está vazio!
+        Your cart is empty!
       </p>
     </div>
     <div class="table-responsive" *ngIf="items().length">
       <table class="table">
         <tbody>
-          <tr *ngFor="let item of items()">
+          <tr *ngFor="let item of items()" [@row]="rowState">
             <th>({{ item.quantity }}x)  {{ item.menuItem.name }}</th>
             <td class="text-right">{{ item.value() | currency: 'BRL':true }}</td>
             <td class="text-right">
@@ -36,8 +36,8 @@
   </div>
   <div class="box-footer" *ngIf="items().length">
     <div class="pull-right">
-      <button (click)='clear()' type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
-      <a [routerLink]="['/order']" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+      <button (click)='clear()' type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Clear</button>
+      <a [routerLink]="['/order']" class="btn btn-success"><i class="fa fa-credit-card"></i> Finish Order</a>
     </div>
   </div>
 </div>

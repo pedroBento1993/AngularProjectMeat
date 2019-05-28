@@ -23,9 +23,9 @@ export class OrderComponent implements OnInit {
   delivery: number = 8
 
   paymentOptions: RadioOption[] = [
-    { label: 'Dinheiro', value: 'MON' },
-    { label: 'Cartão de Débito', value: 'DEB' },
-    { label: 'Catão Refeição', value: 'REF' }
+    { label: 'Money', value: 'MON' },
+    { label: 'Debit card', value: 'DEB' },
+    { label: 'Meal Card', value: 'REF' }
   ]
 
   constructor(private orderService: OrderService,

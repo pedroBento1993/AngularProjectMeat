@@ -8,55 +8,55 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
+            <i class="fa fa-shopping-cart"></i> Finish your order
           </h2>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12 col-sm-9">
-          <p class="lead">Seus Dados:</p>
+          <p class="lead">Your data:</p>
         </div>
         <div class="col-xs-12 col-sm-3">
           
-      <span class="help-block pull-right has-error-block" *ngIf="orderForm.hasError('emailsNotMatch')"><i class="fa fa-remove"></i> E-mails não conferem</span>
+      <span class="help-block pull-right has-error-block" *ngIf="orderForm.hasError('emailsNotMatch')"><i class="fa fa-remove"></i> E-mails do not match</span>
         </div>
         <div class="col-sm-6 col-xs-12">
-          <mt-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
-            <input class="form-control" formControlName="name" placeholder="Nome" autocomplete="off">
+          <mt-input-container errorMessage="Required field with 5 characters" label="Name">
+            <input class="form-control" formControlName="name" placeholder="Name" autocomplete="off">
           </mt-input-container>
         </div>
 
         <div class="col-sm-3 col-xs-6">
-          <mt-input-container errorMessage="E-mail invalido" label="E-mail">
+          <mt-input-container errorMessage="Invalid E-mail" label="E-mail">
             <input class="form-control" formControlName="email" placeholder="E-mal" autocomplete="off">
           </mt-input-container>
         </div>
 
         <div class="col-sm-3 col-xs-6">
-          <mt-input-container errorMessage="E-mail invalido" label="E-mail">
-            <input class="form-control" formControlName="emailConfirmation" placeholder="Confirmação do e-mail" autocomplete="off">
+          <mt-input-container errorMessage="Invalid E-mail" label="E-mail">
+            <input class="form-control" formControlName="emailConfirmation" placeholder="E-mail confirmation" autocomplete="off">
           </mt-input-container>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <p class="lead">Endereço de Entrega:</p>
+          <p class="lead">Delivery address:</p>
         </div>
         <div class="col-sm-6 col-xs-12">
-          <mt-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
-            <input class="form-control" formControlName="address" placeholder="Endereço" autocomplete="off">
+          <mt-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Address">
+            <input class="form-control" formControlName="address" placeholder="Address" autocomplete="off">
           </mt-input-container>
         </div>
         <div class="col-sm-3 col-xs-6">
-          <mt-input-container errorMessage="Obrigatório e somente números" label="Número">
-            <input type="text" class="form-control" formControlName="number" placeholder="Número" autocomplete="off">
+          <mt-input-container errorMessage="Required and numbers only" label="Number">
+            <input type="text" class="form-control" formControlName="number" placeholder="Number" autocomplete="off">
           </mt-input-container>
         </div>
         <div class="col-sm-3 col-xs-6">
           <mt-input-container>
-            <input type="text" class="form-control" formControlName="optionalAddress" placeholder="Complemento">
+            <input type="text" class="form-control" formControlName="optionalAddress" placeholder="Complement">
           </mt-input-container>
         </div>
         <!-- /.col -->
@@ -66,7 +66,7 @@
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="lead">Itens do Pedido:</p>
+          <p class="lead">Order Items:</p>
         </div>
         <mt-order-items [items]="cartItems()" (increaseQty)="increaseQty($event)" (decreaseQty)="decreaseQty($event)" (remove)="remove($event)"></mt-order-items>
         <!-- /.col -->
@@ -76,7 +76,7 @@
       <div class="row">
         <!-- accepted payments column -->
         <div class="col-sm-6 col-xs-12">
-          <p class="lead">Formas de Pagamento:</p>
+          <p class="lead">Payment methods:</p>
 
           <div class="form-group">
 
@@ -87,7 +87,7 @@
         </div>
         <!-- /.col -->
         <div class="col-sm-6 col-xs-12">
-          <p class="lead">Frete e Total:</p>
+          <p class="lead">Taxes and Total:</p>
           <mt-delivery-costs [delivery]="delivery" [itemsValue]="itemsValue()"></mt-delivery-costs>
 
         </div>
@@ -99,7 +99,7 @@
     <div class="row">
       <div class="col-xs-12">
         <button (click)="checkOrder(orderForm.value)" class="btn btn-success pull-right" [disabled]="!orderForm.valid || cartItems().length === 0">
-          <i class="fa fa-credit-card"></i> Concluir Pedido
+          <i class="fa fa-credit-card"></i> Pay 
         </button>
       </div>
     </div>
