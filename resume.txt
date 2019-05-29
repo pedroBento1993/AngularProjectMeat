@@ -1,0 +1,16 @@
+ This site is a model with some of the main features Angular, built this year
+to prepare the start of a professional project.
+
+Main aspects:
+
+- The site is divided into components that are dynamically changed on the screen
+- Site navigation is done by routes that include the desirable components.
+- There is in the project a simple database in JSON, where it is possible with a json-server to make requests
+- Obtaining Information like(Restaurants / menus / reviews) is done with services
+- Injection of dependencies is used so that the components use the services injected
+- The http requests on the subscription form are made using the observables use of catch data processing
+- You have some examples of using subscription with pipe Async, (in reviews) and use of other pipes like currency
+- For a final purchase is used reactive forms with validations
+- It was applied the use of modules throughout the project for efficient loading of components such as Laizy Loading and Shared Services
+- There are some functionalities throughout the site to test Angular animation module
+- Finally an efficient search bar was implemented
